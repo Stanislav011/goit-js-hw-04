@@ -26,13 +26,36 @@
 
 
 
-function slugify(title) {
+// function slugify(title) {
 
-  return title.toLowerCase().split(' ').join('-');
-}
+//   return title.toLowerCase().split(' ').join('-');
+// }
 
 
-console.log(slugify("Arrays for beginners"));  
-console.log(slugify("English for developer")); 
-console.log(slugify("Ten secrets of JavaScript"));
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
+// console.log(slugify("Arrays for beginners"));  
+// console.log(slugify("English for developer")); 
+// console.log(slugify("Ten secrets of JavaScript"));
+// console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
+
+
+const defaultSettings = {
+  theme: "dark",
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 5,
+  timePerQuestion: 20
+};
+
+const overrideSettings = {
+  theme: "light",
+  public: false,
+  withPassword: true,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 30
+};
+
+const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+console.log(finalSettings);
+
+
