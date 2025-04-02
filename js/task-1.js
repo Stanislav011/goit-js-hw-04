@@ -38,24 +38,29 @@
 // console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
 
 
-const defaultSettings = {
-  theme: "dark",
-  public: true,
-  withPassword: false,
-  minNumberOfQuestions: 5,
-  timePerQuestion: 20
-};
 
-const overrideSettings = {
-  theme: "light",
-  public: false,
-  withPassword: true,
-  minNumberOfQuestions: 10,
-  timePerQuestion: 30
-};
 
-const finalSettings = { ...defaultSettings, ...overrideSettings };
+function isEnoughCapacity(products, containerSize) {
+  const totalQuantity = Object.values(products).reduce((sum, quantity) => sum + quantity, 0);
+  
+  return totalQuantity <= containerSize;
+}
 
-console.log(finalSettings);
+
+console.log(
+  isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
+); 
+
+console.log(
+  isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)
+); 
+
+console.log(
+  isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)
+); 
+
+console.log(
+  isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)
+); 
 
 
